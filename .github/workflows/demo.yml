@@ -2,7 +2,7 @@ name: Deploy website
 on:
   push:
     branches:
-      - dev
+      - devop
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -30,4 +30,4 @@ jobs:
         uses: npm run test
       - name: Get Message from Lint
         run: echo "${{ needs.lint.outputs.message }}"
-        
+
