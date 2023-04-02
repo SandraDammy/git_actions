@@ -4,13 +4,23 @@ on:
     branches:
       - dev
 jobs:
-  job_1:
+  lint:
     runs-on: ubuntu-latest
-      - name: Demo Step
-        run: echo "This is a dev demo step"
-  job_2:
+    steps: 
+      - name: Get Code
+        uses: action/checkout@v3
+      - name: Install Dependencies
+        uses: npm ci
+      - name: Lint Code
+        uses: npm run lint
+  test:
     runs-on: ubuntu-latest
-    steps:
-      - name: Demo Step 2
-        uses: echo "This is a Demo 2"
+    steps: 
+      - name: Get Code
+        uses: action/checkout@v3
+      - name: Install Dependencies
+        uses: npm ci
+      - name: Test Code
+        uses: npm run test
+
 
