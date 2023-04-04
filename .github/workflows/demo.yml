@@ -15,7 +15,9 @@ jobs:
         uses: npm ci
       - name: Lint Code
         uses: npm run lint
-
+      - name: Set Output
+        id: test-output
+        run: echo "message=success" >> $GITHUB_OUTPUT
   test:
     runs-on: ubuntu-latest
     needs: lint
